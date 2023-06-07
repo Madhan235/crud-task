@@ -7,6 +7,7 @@ import AddStudents from './components/AddStudents';
 import UpdateStudents from './components/UpdateStudents';
 import { useState } from 'react';
 import data from './Data/data';
+import Nopage from './components/Nopage';
 
 function App() {
 
@@ -35,6 +36,9 @@ function App() {
             setStudents={setStudents}
             editIdx={editIdx}
             />
+          </Route>
+          <Route path="**">
+<Nopage/>
           </Route>
          </Switch>
     </div>
