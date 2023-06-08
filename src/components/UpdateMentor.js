@@ -22,6 +22,7 @@ console.log("Update")
         setSubject(editTeacher.subject);
        
        },[tid])
+    //    console.log("Update)
         
        const history = useHistory();
             function updateMentor(){
