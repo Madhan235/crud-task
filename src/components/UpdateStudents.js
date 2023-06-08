@@ -15,7 +15,7 @@ useEffect(()=>{
  setBatch(editStudent.batch);
  setGender(editStudent.gender);
  setQualification(editStudent.qualification);
-
+//  console.log(editStudent)
 },[id])
  
 const history = useHistory();

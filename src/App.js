@@ -8,11 +8,18 @@ import UpdateStudents from './components/UpdateStudents';
 import { useState } from 'react';
 import data from './Data/data';
 import Nopage from './components/Nopage';
+import Mentors from './components/Mentors';
+import AddMentors from './components/AddMentors';
+import mentData from "./Data/mentors";
+import UpdateMentor from './components/UpdateMentor';
+
 
 function App() {
 
   const [students, setStudents] = useState(data);
-  const [editIdx,setEditIdx] = useState()
+  const [editIdx,setEditIdx] = useState();
+
+  const [teacher, setTeacher] = useState(mentData);
 
 
   return (
@@ -37,6 +44,26 @@ function App() {
             editIdx={editIdx}
             />
           </Route>
+
+<Route path="/mentors">
+  <Mentors
+   teacher={teacher}
+   setTeacher={setTeacher}
+  />
+</Route>
+<Route path="/addmentors">
+  <AddMentors
+  teacher={teacher}
+  setTeacher={setTeacher}
+  />
+  </Route>
+<Route path="/editmentor/:tid">
+  <UpdateMentor
+   teacher={teacher}
+   setTeacher={setTeacher}
+  />
+</Route>
+
           <Route path="**">
 <Nopage/>
           </Route>

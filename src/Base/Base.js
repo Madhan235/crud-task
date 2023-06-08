@@ -10,10 +10,17 @@ function Base({title, description, children}) {
     <div className='nav-button'>
       <button
       onClick={() =>history.push("/")}
-      >Dashboard</button>
+      >Students-Dashboard</button>
       <button
       onClick={() =>history.push("/add")}
       >Add-Student</button>
+      <button
+      onClick={()=>history.push("/mentors")}
+      >Mentors-Dashboard</button>
+      <button
+      onClick={()=>history.push("/addmentors")}
+      >Add-Mentor</button>
+
     </div>
     <header>
         <h1 className='

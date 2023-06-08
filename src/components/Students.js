@@ -4,7 +4,8 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 function Students({students, setStudents, setEditIdx}) {
-    
+
+
 function deleteStudents(studId){
 const remainingStudnts = students.filter((stud,idx)=>idx !== studId)
 setStudents(remainingStudnts);
