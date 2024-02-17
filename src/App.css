@@ -1,21 +1,46 @@
 body{
-  background-color: rgb(210, 246, 246);
-  margin: 5px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+ 
+main{
+  min-height: 90vh;
+}
+ .page-head{
+  font-weight: bold;
+ }
 .App{
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
-  margin-top: 20px;
  }
+ header {
+  background-color: rgb(108, 135, 246);
+  color: #fff;
+  a{
+    &:hover{
+       color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
+.links{
+  color: white;
+padding: 1rem;
+display: flex;
+gap: 1rem;
+justify-content: center;
+text-decoration: none;
+}
 
  .card{
-  border: 1px solid blue;
-  width: 200px;
-  height: 200px;
+  min-width: 200px;
+  min-height: 200px;
   padding: 6px;
   margin: 0 auto;
-  background-color: skyblue;
-  color: black;
+  background-color:rgb(108, 135, 246);
+  color: #fff;
   border-radius: 10px;
   font-family: 'Times New Roman', Times, serif;
  }
@@ -23,73 +48,61 @@ body{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   gap: 1rem; 
+  margin-bottom: 2rem;
 }
 .button-container{
   display: flex;
   gap: 1rem;
   justify-content: center;
 }
-button{
-  border-radius: 8px;
-  color: blue;
-}
-button:hover{
-  font-size: medium;
-}
-
-
 button {
   position: relative;
   background-color: #04AA6D;
   border: none;
   color: #FFFFFF;
-  padding: 3px;
+  padding: .5rem;
   text-align: center;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
+  border-radius: .5rem;
+  &:hover{
+    opacity: .5;
+    cursor: pointer;
+  }
 }
-
-button:after {
-  content: "";
-  background: #90EE90;
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px!important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s
-}
-
-button:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s
-}
-.input{
+ 
+.input input{
 display: flex; 
 flex-direction: column;
- /* justify-content: space-around; */
+ 
  width: 55%;
+ border-radius: .5rem;
+ padding: .5rem;
 margin: 0 auto;
 gap: 0.5rem;
 }
-.nav-button{
-  border:1px solid skyblue ;
-  height:50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: skyblue;
-  width: 100%;
-  gap: 1rem;
-}
 .responsive{
-   width: 100%;
-   height: auto;
+   width: 100%; 
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.social-links a:hover {
+  color: #ccc;
+}
+
+@media screen and (min-width: 800px) {
+  .input input {
+    width: 30% ;
+  }
+  
 }

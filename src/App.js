@@ -1,6 +1,5 @@
 import { Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import './App.css';
-import Base from './Base/Base';
 import Students from './components/Students';
 import { Route } from 'react-router-dom/cjs/react-router-dom';
 import AddStudents from './components/AddStudents';
@@ -12,7 +11,9 @@ import Mentors from './components/Mentors';
 import AddMentors from './components/AddMentors';
 import mentData from "./Data/mentors";
 import UpdateMentor from './components/UpdateMentor';
-
+import Header from './components/Header';
+import Footer from './components/Footer';
+ 
 
 function App() {
 
@@ -24,6 +25,8 @@ function App() {
 
   return (
     <div className="App">
+     <Header/>
+    
          <Switch>
           <Route exact path="/">
             <Students
@@ -68,6 +71,8 @@ function App() {
 <Nopage/>
           </Route>
          </Switch>
+       
+         <Footer/>
     </div>
   );
 }    

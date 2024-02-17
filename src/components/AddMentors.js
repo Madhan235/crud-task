@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Base from '../Base/Base'
+ 
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function AddMentors({teacher,setTeacher}) {
@@ -19,19 +19,27 @@ const newMentor = {
 setTeacher([...teacher,newMentor])
 history.push("/mentors")
     }
+    
+    const canSave = Boolean(name && batch && gender && subject !== "");
 
   return (
-    <Base
-    title={"Add-Mentor Page"}
-    description={"Fill the below form and press Add-Mentor button"}>
-      <div className='input'>
-
     
+    
+    <main>
+    <section className='page-head'>    
+    <h3>Add-Mentor Page </h3>
+   <p>Fill the below form and press Add-Mentor button</p>     
+   </section> 
+  <br/> 
+
+    <section className='input'>
+
+
 <input
 type='text'
 placeholder='Enter Name'
 value={name}
-onChange={(e)=>setName(e.target.value)}
+onChange={(e)=>setName(e.target.value.trim())}
 /> 
 
 <br/>
@@ -39,7 +47,7 @@ onChange={(e)=>setName(e.target.value)}
 type='text'
 placeholder='Enter Batch'
 value={batch}
-onChange={(e)=>setBatch(e.target.value)}
+onChange={(e)=>setBatch(e.target.value.trim())}
 
 /> 
 
@@ -48,7 +56,7 @@ onChange={(e)=>setBatch(e.target.value)}
 type='text'
 placeholder='Enter Gender'
 value={gender}
-onChange={(e)=>setGender(e.target.value)}
+onChange={(e)=>setGender(e.target.value.trim())}
 
 />
 
@@ -57,15 +65,15 @@ onChange={(e)=>setGender(e.target.value)}
 type='text'
 placeholder='Enter Subject'
 value={subject}
-onChange={(e)=>setSubject(e.target.value)}
+onChange={(e)=>setSubject(e.target.value.trim())}
 
 /> 
 <br/>
-<button onClick={createMentor}>Add Mentor</button>
-
-</div>
-    </Base>
-    
+<button onClick={createMentor}
+disabled={!canSave} style={{ cursor: canSave ? "pointer" : "not-allowed" }}
+>Add Mentor</button>
+   </section>
+   </main>
   )
 }
 

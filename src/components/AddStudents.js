@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Base from '../Base/Base';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function AddStudents({students,setStudents}) {
@@ -20,21 +19,26 @@ setStudents([...students, newStudent]) ;
 history.push("/");
 }
 
-
-
+const canSave = Boolean(name && batch && gender &&  qualification !== "");
   return (
-    <Base
-    title={"Add-Student Page"}
-    description={"We can add New student Here"}
-    >
-    <div className='input'>
+   <>
+   <main>
+
+   
+    <section className='page-head'>    
+    <h3>Add-Student Page </h3>
+   <p>We can add New student Here</p>     
+   </section> 
+  <br/> 
+    
+    <section className='input'>
 
     
         <input
         type='text'
         placeholder='Enter Name'
         value={name}
-        onChange={(e)=>setName(e.target.value)}
+        onChange={(e)=>setName(e.target.value.trim())}
         /> 
 
 <br/>
@@ -42,7 +46,7 @@ history.push("/");
         type='text'
         placeholder='Enter Batch'
         value={batch}
-        onChange={(e)=>setBatch(e.target.value)}
+        onChange={(e)=>setBatch(e.target.value.trim())}
 
         /> 
 
@@ -51,7 +55,7 @@ history.push("/");
         type='text'
         placeholder='Enter Gender'
         value={gender}
-        onChange={(e)=>setGender(e.target.value)}
+        onChange={(e)=>setGender(e.target.value.trim())}
 
         />
 
@@ -60,15 +64,18 @@ history.push("/");
         type='text'
         placeholder='Enter Qualification'
         value={qualification}
-        onChange={(e)=>setQualification(e.target.value)}
+        onChange={(e)=>setQualification(e.target.value.trim())}
 
         /> 
         <br/>
-<button onClick={createStudent}>Add Students</button>
-    
-    </div>
-    </Base>
+        <button onClick={createStudent} disabled={!canSave} style={{ cursor: canSave ? "pointer" : "not-allowed" }}>
+         Add Students
+        </button>
 
+    
+    </section>
+    </main>
+    </>
   )
 }
 

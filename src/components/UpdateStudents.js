@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useParams} from "react-router-dom";
-import Base from '../Base/Base';
+ 
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 function UpdateStudents({students,setStudents,editIdx}) {
     const {id} = useParams();
@@ -15,7 +15,7 @@ useEffect(()=>{
  setBatch(editStudent.batch);
  setGender(editStudent.gender);
  setQualification(editStudent.qualification);
-//  console.log(editStudent)
+ 
 },[id])
  
 const history = useHistory();
@@ -30,13 +30,17 @@ const history = useHistory();
          setStudents([...students])
          history.push("/");
      }
-     
+     const canSave = Boolean(name && batch && gender && qualification !== "");
   return (
-<Base 
-title={"Edit-Student Page"}
-description={"We can edit a student information here"}
->
-    <div> 
+ 
+ 
+ 
+    <main> 
+         <section className='page-head'>    
+    <h3>Edit-Student Page </h3>
+   <p>Edit the below form and press Update-Student button</p>     
+   </section> 
+  <br/> 
 
 <div className='input'>
 
@@ -45,7 +49,7 @@ description={"We can edit a student information here"}
         type='text'
         placeholder='Enter Name'
         value={name}
-        onChange={(e)=>setName(e.target.value)}
+        onChange={(e)=>setName(e.target.value.trim())}
         /> 
 
 <br/>
@@ -53,7 +57,7 @@ description={"We can edit a student information here"}
         type='text'
         placeholder='Enter Batch'
         value={batch}
-        onChange={(e)=>setBatch(e.target.value)}
+        onChange={(e)=>setBatch(e.target.value.trim())}
 
         /> 
 
@@ -62,7 +66,7 @@ description={"We can edit a student information here"}
         type='text'
         placeholder='Enter Gender'
         value={gender}
-        onChange={(e)=>setGender(e.target.value)}
+        onChange={(e)=>setGender(e.target.value.trim())}
 
         />
 
@@ -71,7 +75,7 @@ description={"We can edit a student information here"}
         type='text'
         placeholder='Enter Qualification'
         value={qualification}
-        onChange={(e)=>setQualification(e.target.value)}
+        onChange={(e)=>setQualification(e.target.value.trim())}
 
         /> 
         <br/>
@@ -80,8 +84,8 @@ description={"We can edit a student information here"}
     </div>
 
 
-    </div>
-</Base>
+    </main>
+ 
   
   )
 }

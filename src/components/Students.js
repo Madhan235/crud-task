@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Base from '../Base/Base';
+ 
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
@@ -13,10 +13,10 @@ setStudents(remainingStudnts);
 const history = useHistory();
   return (
     <div> 
-        <Base   
-title={"Students Dashboard"}
-description={"This Page contains all students data"}    
-       > 
+    <section className='page-head'>    
+  <h3>Students Dashboard </h3>
+ <p>This Page contains all students data</p>     
+ </section> 
 <br/> 
 
 <div className='card-container'>
@@ -40,7 +40,7 @@ description={"This Page contains all students data"}
 
 </div>
 
-</Base>
+ 
     </div>
   )
 }

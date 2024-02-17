@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Base from '../Base/Base';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 function UpdateMentor({teacher, setTeacher}) {
@@ -11,7 +10,7 @@ function UpdateMentor({teacher, setTeacher}) {
     const [subject,setSubject] = useState();
     
      
-console.log("Update")
+ 
     
 
     useEffect(()=>{
@@ -36,18 +35,26 @@ console.log("Update")
                 setTeacher([...teacher])
                 history.push("/mentors");
             }
-  return (
-    <Base
-    title={"Edit-Mentor Page"}
-    description={"Edit the below form and press Update-Mentor button"}>
-      <div className='input'>
 
+            const canSave = Boolean(name && batch && gender && subject !== "");
+
+            
+            
+  return (
+    <main>
+    <section className='page-head'>    
+    <h3>Edit-Mentor Page </h3>
+   <p>Edit the below form and press Update-Mentor button</p>     
+   </section> 
+  <br/> 
+     
+      <div className='input'>
    
 <input
 type='text'
 placeholder='Enter Name'
 value={name}
-onChange={(e)=>setName(e.target.value)}
+onChange={(e)=>setName(e.target.value.trim())}
 /> 
 
 <br/>
@@ -55,16 +62,16 @@ onChange={(e)=>setName(e.target.value)}
 type='text'
 placeholder='Enter Batch'
 value={batch}
-onChange={(e)=>setBatch(e.target.value)}
+onChange={(e)=>setBatch(e.target.value ? e.target.value : undefined )}
 
 /> 
-
+ 
 <br/>
 <input
 type='text'
 placeholder='Enter Gender'
 value={gender}
-onChange={(e)=>setGender(e.target.value)}
+onChange={(e)=>setGender(e.target.value.trim())}
 
 />
 
@@ -73,14 +80,17 @@ onChange={(e)=>setGender(e.target.value)}
 type='text'
 placeholder='Enter Subject'
 value={subject}
-onChange={(e)=>setSubject(e.target.value)}
+onChange={(e)=>setSubject(e.target.value.trim())}
 
 /> 
+ 
 <br/>
-<button onClick={updateMentor}>Update-Mentor</button>
+<button onClick={updateMentor}
+disabled={!canSave} style={{ cursor: canSave ? "pointer" : "not-allowed" }}
+>Update-Mentor</button>
 
 </div>
-    </Base>
+</main>
   )
 }
 
